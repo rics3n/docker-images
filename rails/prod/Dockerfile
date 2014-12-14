@@ -18,7 +18,7 @@ ONBUILD RUN bundle config --global frozen 1
 
 ONBUILD COPY Gemfile /data/
 ONBUILD COPY Gemfile.lock /data/
-ONBUILD RUN bundle install --without development test profile --path=/tmp/bundler
+ONBUILD RUN bundle install --without development test profile --path /tmp/bundler
 
 ONBUILD COPY . /data
 
