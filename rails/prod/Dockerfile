@@ -1,15 +1,16 @@
 FROM rics3n/rails_base
 MAINTAINER Rico Nuguid <rico@snib.it>
 
-ENV NEWUSER rails_app
+#ENV NEWUSER rails_app
 
-RUN useradd -m $NEWUSER
-RUN adduser $NEWUSER sudo
+#RUN useradd -m $NEWUSER
+#RUN adduser $NEWUSER sudo
 
 RUN mkdir /data
-RUN chown -R $NEWUSER /data
+#RUN chown -R $NEWUSER /data
 
-USER $NEWUSER
+
+#USER $NEWUSER
 WORKDIR /data
 
 # throw errors if Gemfile has been modified since Gemfile.lock
