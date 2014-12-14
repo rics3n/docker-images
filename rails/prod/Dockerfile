@@ -9,7 +9,7 @@ RUN useradd -m $NEWUSER
 RUN adduser $NEWUSER sudo
 USER $NEWUSER
 
-RUN chown -R $NEWUSER /data
+RUN sudo chown -R $NEWUSER /data
 WORKDIR /data
 
 # throw errors if Gemfile has been modified since Gemfile.lock
