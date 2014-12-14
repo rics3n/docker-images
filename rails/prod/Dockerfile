@@ -1,6 +1,12 @@
 FROM rics3n/rails_base
 MAINTAINER Rico Nuguid <rico@snib.it>
 
+ENV NEWUSER rails_app
+
+RUN useradd -m $NEWUSER
+RUN adduser $NEWUSER sudo
+USER $NEWUSER
+
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
