@@ -16,8 +16,8 @@ WORKDIR /data
 # throw errors if Gemfile has been modified since Gemfile.lock
 ONBUILD RUN bundle config --global frozen 1
 
-ONBUILD COPY Gemfile /data
-ONBUILD COPY Gemfile.lock /data
+ONBUILD COPY Gemfile /data/
+ONBUILD COPY Gemfile.lock /data/
 ONBUILD RUN bundle install
 
 ONBUILD COPY . /data
