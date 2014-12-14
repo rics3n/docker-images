@@ -7,17 +7,18 @@ RUN useradd -m $NEWUSER
 RUN adduser $NEWUSER sudo
 USER $NEWUSER
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /data
+RUN chown -R $NEWUSER /data
+WORKDIR /data
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 ONBUILD RUN bundle config --global frozen 1
 
-ONBUILD COPY Gemfile /usr/src/app/
-ONBUILD COPY Gemfile.lock /usr/src/app/
+ONBUILD COPY Gemfile /data
+ONBUILD COPY Gemfile.lock /data
 ONBUILD RUN bundle install
 
-ONBUILD COPY . /usr/src/app
+ONBUILD COPY . /data
 
 EXPOSE 3000
 CMD rails server
