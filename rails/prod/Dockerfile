@@ -3,11 +3,12 @@ MAINTAINER Rico Nuguid <rico@snib.it>
 
 ENV NEWUSER rails_app
 
+RUN mkdir /data
+
 RUN useradd -m $NEWUSER
 RUN adduser $NEWUSER sudo
 USER $NEWUSER
 
-RUN mkdir -p /data
 RUN chown -R $NEWUSER /data
 WORKDIR /data
 
